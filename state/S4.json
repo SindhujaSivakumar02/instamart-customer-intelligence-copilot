@@ -1,0 +1,44 @@
+{
+  "scenario_id": "S4",
+  "status": "DENIED",
+  "final_answer": "No refund is due under the delivery policy.",
+  "llm_calls": 4,
+  "tokens_used": 13,
+  "steps": [
+    {
+      "tool": "get_order",
+      "args": {
+        "order_id": "ORD-100001"
+      },
+      "observation": {
+        "order_id": "ORD-100001",
+        "status": "completed",
+        "order_amount": 109.65,
+        "delivery_minutes": 20.0
+      }
+    },
+    {
+      "tool": "search_policy",
+      "args": {
+        "query": "refund policy late delivery"
+      },
+      "observation": {
+        "answer": "Delivery Policy.",
+        "sources": [
+          "refund_policy.txt",
+          "delivery_policy.txt",
+          "delivery_policy.txt"
+        ]
+      }
+    },
+    {
+      "tool": "calculate_refund",
+      "args": {
+        "order_id": "ORD-100001"
+      },
+      "observation": {
+        "refund_inr": 0.0
+      }
+    }
+  ]
+}

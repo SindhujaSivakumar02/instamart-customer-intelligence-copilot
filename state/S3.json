@@ -1,0 +1,54 @@
+{
+  "scenario_id": "S3",
+  "status": "ESCALATE",
+  "final_answer": "Refund of INR 1999.00 requires human approval.",
+  "llm_calls": 4,
+  "tokens_used": 12,
+  "steps": [
+    {
+      "tool": "get_order",
+      "args": {
+        "order_id": "ORD-100145"
+      },
+      "observation": {
+        "order_id": "ORD-100145",
+        "status": "completed",
+        "order_amount": 1999.0,
+        "delivery_minutes": 54.0
+      }
+    },
+    {
+      "tool": "search_policy",
+      "args": {
+        "query": "refund policy late delivery"
+      },
+      "observation": {
+        "answer": "Delivery Policy.",
+        "sources": [
+          "refund_policy.txt",
+          "delivery_policy.txt",
+          "delivery_policy.txt"
+        ]
+      }
+    },
+    {
+      "tool": "calculate_refund",
+      "args": {
+        "order_id": "ORD-100145"
+      },
+      "observation": {
+        "refund_inr": 1999.0
+      }
+    },
+    {
+      "tool": "escalate_to_human",
+      "args": {
+        "order_id": "ORD-100145",
+        "refund_inr": 1999.0
+      },
+      "observation": {
+        "refund_inr": 1999.0
+      }
+    }
+  ]
+}

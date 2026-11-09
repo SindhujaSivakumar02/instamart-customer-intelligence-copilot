@@ -1,0 +1,18 @@
+{
+  "scenario_id": "S6",
+  "status": "NOT_FOUND",
+  "final_answer": "Order not found. Human support can assist.",
+  "llm_calls": 2,
+  "tokens_used": 7,
+  "steps": [
+    {
+      "tool": "get_order",
+      "args": {
+        "order_id": "ORD-999999"
+      },
+      "observation": {
+        "error": "NOT_FOUND"
+      }
+    }
+  ]
+}

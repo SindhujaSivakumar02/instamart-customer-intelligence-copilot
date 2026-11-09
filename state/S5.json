@@ -1,0 +1,21 @@
+{
+  "scenario_id": "S5",
+  "status": "DENIED",
+  "final_answer": "Refund denied because the order is not completed.",
+  "llm_calls": 2,
+  "tokens_used": 11,
+  "steps": [
+    {
+      "tool": "get_order",
+      "args": {
+        "order_id": "ORD-100025"
+      },
+      "observation": {
+        "order_id": "ORD-100025",
+        "status": "cancelled",
+        "order_amount": 45.0,
+        "delivery_minutes": null
+      }
+    }
+  ]
+}

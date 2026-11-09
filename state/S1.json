@@ -1,0 +1,54 @@
+{
+  "scenario_id": "S1",
+  "status": "REFUND",
+  "final_answer": "Refund of INR 128.25 has been issued.",
+  "llm_calls": 4,
+  "tokens_used": 16,
+  "steps": [
+    {
+      "tool": "get_order",
+      "args": {
+        "order_id": "ORD-100048"
+      },
+      "observation": {
+        "order_id": "ORD-100048",
+        "status": "completed",
+        "order_amount": 128.25,
+        "delivery_minutes": 65.0
+      }
+    },
+    {
+      "tool": "search_policy",
+      "args": {
+        "query": "refund policy late delivery"
+      },
+      "observation": {
+        "answer": "Delivery Policy.",
+        "sources": [
+          "refund_policy.txt",
+          "delivery_policy.txt",
+          "delivery_policy.txt"
+        ]
+      }
+    },
+    {
+      "tool": "calculate_refund",
+      "args": {
+        "order_id": "ORD-100048"
+      },
+      "observation": {
+        "refund_inr": 128.25
+      }
+    },
+    {
+      "tool": "issue_refund",
+      "args": {
+        "order_id": "ORD-100048",
+        "refund_inr": 128.25
+      },
+      "observation": {
+        "refund_inr": 128.25
+      }
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "scenario_id": "S7",
+  "status": "FALLBACK_MAX_ITERATIONS",
+  "final_answer": "Human review required: iteration limit reached.",
+  "llm_calls": 1,
+  "tokens_used": 6,
+  "steps": []
+}
